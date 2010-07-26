@@ -1,9 +1,15 @@
 <html>
     <head>
         <style>
-        pre {float: left; border: 1px solid gray; padding: 1em; margin-right: 3em;}
-        hr {clear: both;}
+        pre {float: left; 
+             border: 1px solid gray; 
+             padding: 1em; 
+             margin:0; 
+             background-color: #C3FDB8;
+             margin-right: 3em;}
+        hr {clear: both; margin-bottom: 2em; margin-top: 2em;}
         </style>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
     </head>
 <body>
 
@@ -14,11 +20,37 @@ ini_set('display_errors', 'on');
 error_reporting(E_ERROR);
 
 
-/* Para convertir el texto original en HTML tiene
- * que utilizar la clase RST. */
-echo "<pre>Original text</pre> \n";
-echo RST("Converted text");
-echo "<hr/>";
+echo "
+<h1>PHP RestructuredText</h1>
+
+<p>
+Esta es una demostración de cómo utilizar
+el conversor de texto <em>RestructuredText</em> a HTML implementado
+en PHP.
+
+
+<p>
+Para utilizar el conversor tiene que usar una sentencia PHP como
+la siguiente:
+
+<pre>
+echo RST(\$source);
+</pre>
+
+<div style='padding-top: 0.5em; clear: both'></div>
+
+<p>
+donde <em>$source</em>, es el texto en formato <em>RestructuredText</em>.
+
+<h2>Ejemplos</h2>
+
+<p>
+A continuación se muestran algunos ejemplos
+
+
+<hr/>
+
+";
 
 
 /* Ahora se toman varios textos de ejemplo de
@@ -28,9 +60,19 @@ echo "<hr/>";
 
 
 $text_collection = array(
-"Hola",
+"Hola, este es un texto simple.
+
+En dos partes.
+",
+
 "Titulo de nivel 1
------------------
+=================
+
+Titulo nivel 2
+--------------
+
+Titulo nivel 3
+______________
 ",
 "codigo preformateado::
     
@@ -51,9 +93,9 @@ $text_collection = array(
   - asd
  - tres
 - ejemplo",
-"imagenes:
+"Mostrar una imagen:
 
-.. image:: image_test.png
+.. image:: ceferino_cara.png
 "
 );
 
