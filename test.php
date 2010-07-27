@@ -14,10 +14,10 @@
 <body>
 
 <?php
-require "rst.php";
 
 ini_set('display_errors', 'on');
 error_reporting(E_ERROR);
+require "rst.php";
 
 
 echo "
@@ -40,7 +40,7 @@ echo RST(\$source);
 <div style='padding-top: 0.5em; clear: both'></div>
 
 <p>
-donde <em>$source</em>, es el texto en formato <em>RestructuredText</em>.
+donde <code>\$source</code>, es el texto en formato <em>RestructuredText</em>.
 
 <h2>Ejemplos</h2>
 
@@ -64,15 +64,26 @@ $text_collection = array(
 
 En dos partes.
 ",
+"
+Un párrafo normal:
 
-"Titulo de nivel 1
+::
+
+    Otro en fuente monospace.
+
+"
+,
+
+"
+=================
+Titulo de nivel 1
 =================
 
 Titulo nivel 2
---------------
+==============
 
 Titulo nivel 3
-______________
+--------------
 ",
 "codigo preformateado::
     
@@ -87,12 +98,6 @@ ______________
 "- uno
 - dos
 - tres",
-"
-- uno
-    - dos
-  - asd
- - tres
-- ejemplo",
 "Mostrar una imagen:
 
 .. image:: ceferino_cara.png
@@ -115,44 +120,8 @@ Bienvenido
 echo "<PRE>$original_text</PRE>";
 $text = RST($original_text);
 echo $text;
-
-/*
-============
-super titulo
-============
-
-
-titulo
-======
-
-otro
-----
-
-- item 1
-- item 2
-
-.. image:: algo.png
-
-![adads](hola.png)
-
-.. code-block:: python
-
-    import os
-    os.path.join('a', 'b')
-
-
-otro ejemplo::
-
-    mas texto
-
-
-
-");
-
-echo $text;
-
- */
 ?>
 
+<hr/>
 
 </body></html>
